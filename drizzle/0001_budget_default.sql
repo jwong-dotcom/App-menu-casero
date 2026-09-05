@@ -1,0 +1,1 @@
+ALTER TABLE "preferences" ALTER COLUMN "budget_level" SET DEFAULT 3;

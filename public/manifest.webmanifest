@@ -1,0 +1,13 @@
+{
+  "name": "Menu Casero",
+  "short_name": "Menu Casero",
+  "description": "Planifica el menu de la semana, sin repetir platos y con la lista de compras lista.",
+  "start_url": "/plan",
+  "display": "standalone",
+  "background_color": "#faf9f7",
+  "theme_color": "#ea580c",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

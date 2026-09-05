@@ -1,0 +1,145 @@
+import type { Aisle } from "../schema";
+
+export type IngredientSeed = {
+  slug: string;
+  name: string;
+  aisle: Aisle;
+  allergenTags?: string[];
+};
+
+/**
+ * Catalogo maestro de ingredientes. El `slug` es la llave que usan las recetas.
+ * `allergenTags` alimenta el filtro automatico de dietas y alergias.
+ */
+export const INGREDIENTS: IngredientSeed[] = [
+  // Verduras
+  { slug: "cebolla-roja", name: "Cebolla roja", aisle: "verduras" },
+  { slug: "cebolla-china", name: "Cebolla china", aisle: "verduras" },
+  { slug: "tomate", name: "Tomate", aisle: "verduras" },
+  { slug: "ajo", name: "Ajo", aisle: "verduras" },
+  { slug: "papa-blanca", name: "Papa blanca", aisle: "verduras" },
+  { slug: "papa-amarilla", name: "Papa amarilla", aisle: "verduras" },
+  { slug: "camote", name: "Camote", aisle: "verduras" },
+  { slug: "yuca", name: "Yuca", aisle: "verduras" },
+  { slug: "zanahoria", name: "Zanahoria", aisle: "verduras" },
+  { slug: "arveja", name: "Arvejas", aisle: "verduras" },
+  { slug: "vainita", name: "Vainitas", aisle: "verduras" },
+  { slug: "zapallo", name: "Zapallo", aisle: "verduras" },
+  { slug: "zapallito-italiano", name: "Zapallito italiano", aisle: "verduras" },
+  { slug: "brocoli", name: "Brocoli", aisle: "verduras" },
+  { slug: "coliflor", name: "Coliflor", aisle: "verduras" },
+  { slug: "espinaca", name: "Espinaca", aisle: "verduras" },
+  { slug: "acelga", name: "Acelga", aisle: "verduras" },
+  { slug: "lechuga", name: "Lechuga", aisle: "verduras" },
+  { slug: "pepino", name: "Pepino", aisle: "verduras" },
+  { slug: "apio", name: "Apio", aisle: "verduras" },
+  { slug: "poro", name: "Poro", aisle: "verduras" },
+  { slug: "choclo", name: "Choclo", aisle: "verduras" },
+  { slug: "champinon", name: "Champinones", aisle: "verduras" },
+  { slug: "palta", name: "Palta", aisle: "verduras" },
+  { slug: "pimiento", name: "Pimiento", aisle: "verduras" },
+  { slug: "aji-amarillo", name: "Aji amarillo", aisle: "verduras" },
+  { slug: "aji-panca", name: "Aji panca (pasta)", aisle: "condimentos" },
+  { slug: "rocoto", name: "Rocoto", aisle: "verduras" },
+  { slug: "culantro", name: "Culantro", aisle: "verduras" },
+  { slug: "perejil", name: "Perejil", aisle: "verduras" },
+  { slug: "huacatay", name: "Huacatay", aisle: "condimentos" },
+  { slug: "hierbabuena", name: "Hierbabuena", aisle: "verduras" },
+  { slug: "col", name: "Col", aisle: "verduras" },
+  { slug: "beterraga", name: "Beterraga", aisle: "verduras" },
+
+  // Frutas
+  { slug: "limon", name: "Limon", aisle: "frutas" },
+  { slug: "platano", name: "Platano", aisle: "frutas" },
+  { slug: "manzana", name: "Manzana", aisle: "frutas" },
+  { slug: "papaya", name: "Papaya", aisle: "frutas" },
+  { slug: "piña", name: "Piña", aisle: "frutas" },
+  { slug: "fresa", name: "Fresas", aisle: "frutas" },
+  { slug: "naranja", name: "Naranja", aisle: "frutas" },
+  { slug: "mango", name: "Mango", aisle: "frutas" },
+  { slug: "maracuya", name: "Maracuya", aisle: "frutas" },
+  { slug: "arandano", name: "Arandanos", aisle: "frutas" },
+  { slug: "pasas", name: "Pasas", aisle: "abarrotes" },
+
+  // Carnes y huevos
+  { slug: "pollo-entero", name: "Pollo", aisle: "carnes" },
+  { slug: "pechuga-pollo", name: "Pechuga de pollo", aisle: "carnes" },
+  { slug: "pierna-pollo", name: "Pierna de pollo", aisle: "carnes" },
+  { slug: "carne-res", name: "Carne de res (lomo)", aisle: "carnes" },
+  { slug: "carne-molida", name: "Carne molida", aisle: "carnes" },
+  { slug: "osobuco", name: "Osobuco de res", aisle: "carnes" },
+  { slug: "carne-cerdo", name: "Carne de cerdo", aisle: "carnes" },
+  { slug: "chuleta-cerdo", name: "Chuleta de cerdo", aisle: "carnes" },
+  { slug: "hot-dog", name: "Hot dog", aisle: "carnes" },
+  { slug: "jamon", name: "Jamon", aisle: "carnes" },
+  { slug: "tocino", name: "Tocino", aisle: "carnes" },
+  { slug: "higado-res", name: "Higado de res", aisle: "carnes" },
+  { slug: "huevo", name: "Huevos", aisle: "lacteos", allergenTags: ["huevo"] },
+
+  // Pescados y mariscos
+  { slug: "filete-pescado", name: "Filete de pescado", aisle: "pescados", allergenTags: ["pescado"] },
+  { slug: "bonito", name: "Bonito", aisle: "pescados", allergenTags: ["pescado"] },
+  { slug: "atun-lata", name: "Atun en lata", aisle: "abarrotes", allergenTags: ["pescado"] },
+  { slug: "camaron", name: "Camarones", aisle: "pescados", allergenTags: ["mariscos"] },
+  { slug: "calamar", name: "Calamar", aisle: "pescados", allergenTags: ["mariscos"] },
+  { slug: "concha-abanico", name: "Conchas de abanico", aisle: "pescados", allergenTags: ["mariscos"] },
+
+  // Lacteos
+  { slug: "leche", name: "Leche", aisle: "lacteos", allergenTags: ["lacteos"] },
+  { slug: "leche-evaporada", name: "Leche evaporada", aisle: "abarrotes", allergenTags: ["lacteos"] },
+  { slug: "queso-fresco", name: "Queso fresco", aisle: "lacteos", allergenTags: ["lacteos"] },
+  { slug: "queso-parmesano", name: "Queso parmesano", aisle: "lacteos", allergenTags: ["lacteos"] },
+  { slug: "queso-edam", name: "Queso Edam", aisle: "lacteos", allergenTags: ["lacteos"] },
+  { slug: "mantequilla", name: "Mantequilla", aisle: "lacteos", allergenTags: ["lacteos"] },
+  { slug: "yogurt", name: "Yogurt natural", aisle: "lacteos", allergenTags: ["lacteos"] },
+  { slug: "crema-leche", name: "Crema de leche", aisle: "lacteos", allergenTags: ["lacteos"] },
+
+  // Abarrotes
+  { slug: "arroz", name: "Arroz", aisle: "abarrotes" },
+  { slug: "fideo-spaghetti", name: "Spaghetti", aisle: "abarrotes", allergenTags: ["gluten"] },
+  { slug: "fideo-corto", name: "Fideo corto", aisle: "abarrotes", allergenTags: ["gluten"] },
+  { slug: "quinua", name: "Quinua", aisle: "abarrotes" },
+  { slug: "lenteja", name: "Lentejas", aisle: "abarrotes" },
+  { slug: "frejol", name: "Frejoles", aisle: "abarrotes" },
+  { slug: "garbanzo", name: "Garbanzos", aisle: "abarrotes" },
+  { slug: "pallar", name: "Pallares", aisle: "abarrotes" },
+  { slug: "harina", name: "Harina", aisle: "abarrotes", allergenTags: ["gluten"] },
+  { slug: "avena", name: "Avena", aisle: "abarrotes", allergenTags: ["gluten"] },
+  { slug: "maiz-morado", name: "Maiz morado", aisle: "abarrotes" },
+  { slug: "chuño", name: "Chuño / papa seca", aisle: "abarrotes" },
+  { slug: "aceite", name: "Aceite vegetal", aisle: "abarrotes" },
+  { slug: "aceite-oliva", name: "Aceite de oliva", aisle: "abarrotes" },
+  { slug: "azucar", name: "Azucar", aisle: "abarrotes" },
+  { slug: "miel", name: "Miel", aisle: "abarrotes" },
+  { slug: "sal", name: "Sal", aisle: "condimentos" },
+  { slug: "pimienta", name: "Pimienta", aisle: "condimentos" },
+  { slug: "comino", name: "Comino", aisle: "condimentos" },
+  { slug: "oregano", name: "Oregano", aisle: "condimentos" },
+  { slug: "sillao", name: "Sillao (salsa de soya)", aisle: "condimentos", allergenTags: ["gluten", "soya"] },
+  { slug: "vinagre", name: "Vinagre", aisle: "condimentos" },
+  { slug: "mayonesa", name: "Mayonesa", aisle: "condimentos", allergenTags: ["huevo"] },
+  { slug: "mostaza", name: "Mostaza", aisle: "condimentos" },
+  { slug: "salsa-tomate", name: "Salsa de tomate", aisle: "abarrotes" },
+  { slug: "caldo-pollo", name: "Caldo de pollo (cubo)", aisle: "abarrotes" },
+  { slug: "galleta-soda", name: "Galleta de soda", aisle: "abarrotes", allergenTags: ["gluten"] },
+  { slug: "nuez", name: "Nueces", aisle: "abarrotes", allergenTags: ["frutos-secos"] },
+  { slug: "mani", name: "Mani", aisle: "abarrotes", allergenTags: ["mani"] },
+  { slug: "aceituna", name: "Aceitunas", aisle: "abarrotes" },
+  { slug: "canela", name: "Canela", aisle: "condimentos" },
+  { slug: "clavo-olor", name: "Clavo de olor", aisle: "condimentos" },
+  { slug: "chocolate-taza", name: "Chocolate para taza", aisle: "abarrotes" },
+  { slug: "cacao", name: "Cacao en polvo", aisle: "abarrotes" },
+  { slug: "vino-tinto", name: "Vino tinto", aisle: "bebidas" },
+  { slug: "cerveza", name: "Cerveza negra", aisle: "bebidas", allergenTags: ["gluten"] },
+  { slug: "cafe", name: "Cafe", aisle: "bebidas" },
+  { slug: "te", name: "Te / infusion", aisle: "bebidas" },
+  { slug: "jugo-naranja", name: "Jugo de naranja", aisle: "bebidas" },
+
+  // Panaderia
+  { slug: "pan-frances", name: "Pan frances", aisle: "panaderia", allergenTags: ["gluten"] },
+  { slug: "pan-integral", name: "Pan integral", aisle: "panaderia", allergenTags: ["gluten"] },
+  { slug: "pan-molde", name: "Pan de molde", aisle: "panaderia", allergenTags: ["gluten"] },
+  { slug: "tortilla-trigo", name: "Tortillas de trigo", aisle: "panaderia", allergenTags: ["gluten"] },
+  { slug: "masa-wantan", name: "Masa wantan", aisle: "congelados", allergenTags: ["gluten"] },
+  { slug: "tamal", name: "Masa de tamal", aisle: "abarrotes" },
+];
