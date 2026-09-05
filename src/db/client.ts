@@ -28,8 +28,10 @@ export function createDatabase(connectionString: string): Database {
   const isNeon = !forcePg && host.endsWith(".neon.tech");
 
   if (isNeon) {
+    console.log("[db] usando driver: neon-http (fetch sobre HTTPS)");
     return drizzleNeon(neon(connectionString), { schema });
   }
+  console.log("[db] usando driver: node-postgres (protocolo nativo de Postgres)");
   return drizzlePg(new Pool({ connectionString }), { schema }) as unknown as Database;
 }
 
