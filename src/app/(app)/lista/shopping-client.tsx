@@ -164,7 +164,7 @@ export function ShoppingClient({
                           : "Marcar como algo que ya tengo en casa"
                       }
                       className={`shrink-0 rounded-lg px-2 py-1 text-xs ${
-                        item.inPantry ? "bg-leaf-100 text-leaf-700" : "text-ink-soft hover:bg-black/5"
+                        item.inPantry ? "bg-brand-100 text-brand-700" : "text-ink-soft hover:bg-black/5"
                       }`}
                     >
                       {item.inPantry ? "En despensa" : "Ya lo tengo"}

@@ -1,28 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-50: #fff7ed;
-  --color-brand-100: #ffedd5;
-  --color-brand-200: #fed7aa;
-  --color-brand-300: #fdba74;
-  --color-brand-400: #fb923c;
-  --color-brand-500: #f97316;
-  --color-brand-600: #ea580c;
-  --color-brand-700: #c2410c;
-  --color-brand-800: #9a3412;
-  --color-brand-900: #7c2d12;
+  /* Verde oscuro: unico acento, un solo hue, luminosidad decreciente. */
+  --color-brand-50: #eef4f0;
+  --color-brand-100: #dbe7e0;
+  --color-brand-200: #b3cebd;
+  --color-brand-300: #86b099;
+  --color-brand-400: #558d73;
+  --color-brand-500: #2f6d53;
+  --color-brand-600: #1f5540;
+  --color-brand-700: #184433;
+  --color-brand-800: #123527;
+  --color-brand-900: #0d271d;
 
-  --color-leaf-50: #f0fdf4;
-  --color-leaf-100: #dcfce7;
-  --color-leaf-500: #22c55e;
-  --color-leaf-600: #16a34a;
-  --color-leaf-700: #15803d;
-
-  --color-ink: #1c1917;
-  --color-ink-soft: #57534e;
-  --color-line: #e7e5e4;
+  --color-ink: #0f1210;
+  --color-ink-soft: #5b625d;
+  --color-line: #e2e6e3;
   --color-surface: #ffffff;
-  --color-canvas: #faf9f7;
+  --color-canvas: #f7f9f8;
 
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, sans-serif;
@@ -81,7 +76,7 @@
 
 @layer components {
   .card {
-    @apply rounded-2xl border border-line bg-white shadow-sm;
+    @apply rounded-2xl border border-line bg-white;
   }
 
   .btn-primary {
