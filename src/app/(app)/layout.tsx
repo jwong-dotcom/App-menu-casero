@@ -1,5 +1,6 @@
 import { redirect } from "next/navigation";
 import { logout } from "@/app/actions/auth";
+import { FireIcon } from "@/components/icons";
 import { BottomNav, SideNav } from "@/components/nav";
 import { getSession } from "@/lib/session";
 
@@ -13,8 +14,8 @@ export default async function AppLayout({ children }: { children: React.ReactNod
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="sticky top-0 z-30 flex items-center justify-between border-b border-[color:var(--color-line)] bg-white/95 px-4 py-3 backdrop-blur md:px-8">
           <div className="flex items-center gap-2 md:hidden">
-            <span aria-hidden className="text-xl">
-              🍽️
+            <span className="flex size-7 items-center justify-center rounded-lg bg-brand-600 text-white">
+              <FireIcon className="size-4" />
             </span>
             <span className="text-sm font-bold">Menu Casero</span>
           </div>

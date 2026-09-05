@@ -21,20 +21,20 @@ export function PageHeader({
 }
 
 export function EmptyState({
-  emoji,
+  icon,
   title,
   description,
   action,
 }: {
-  emoji: string;
+  icon: React.ReactNode;
   title: string;
   description: string;
   action?: React.ReactNode;
 }) {
   return (
     <div className="card flex flex-col items-center px-6 py-12 text-center">
-      <span aria-hidden className="mb-3 text-4xl">
-        {emoji}
+      <span aria-hidden className="mb-3 flex size-12 items-center justify-center rounded-full bg-brand-50 text-brand-600">
+        {icon}
       </span>
       <h2 className="text-base font-semibold">{title}</h2>
       <p className="mt-1 max-w-sm text-sm text-ink-soft">{description}</p>

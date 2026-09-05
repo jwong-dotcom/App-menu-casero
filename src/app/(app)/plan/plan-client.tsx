@@ -4,6 +4,16 @@ import Link from "next/link";
 import { useActionState, useEffect, useRef, useState, useTransition } from "react";
 import { useFormStatus } from "react-dom";
 import { generateWeek, swapMeal, type PlanActionState } from "@/app/actions/plan";
+import {
+  BoltIcon,
+  CalendarDaysIcon,
+  ClockIcon,
+  FireIcon,
+  MoonIcon,
+  ChartBarIcon,
+  StarIconSolid,
+  SunIcon,
+} from "@/components/icons";
 import { EmptyState, Notice, NutritionBar } from "@/components/ui";
 import { DAY_SHORT } from "@/lib/dates";
 
@@ -33,10 +43,10 @@ const MEAL_LABEL: Record<string, string> = {
   cena: "Cena",
 };
 
-const MEAL_ICON: Record<string, string> = {
-  desayuno: "🌅",
-  almuerzo: "☀️",
-  cena: "🌙",
+const MEAL_ICON: Record<string, typeof SunIcon> = {
+  desayuno: SunIcon,
+  almuerzo: BoltIcon,
+  cena: MoonIcon,
 };
 
 function GenerateButton({ hasPlan }: { hasPlan: boolean }) {
@@ -133,7 +143,7 @@ export function PlanClient({
 
       {!hasPlan ? (
         <EmptyState
-          emoji="🗓️"
+          icon={<CalendarDaysIcon className="size-6" />}
           title="Todavia no hay menu para esta semana"
           description="Genera el menu y te armamos los 7 dias sin repetir ningun plato de las ultimas 4 semanas, con su lista de compras."
         />
@@ -173,10 +183,11 @@ export function PlanClient({
           <div className="space-y-3">
             {activeMeals.map((mealType) => {
               const meal = dayMeals.find((m) => m.mealType === mealType);
+              const MealIcon = MEAL_ICON[mealType] ?? SunIcon;
               return (
                 <section key={mealType} className="card overflow-hidden">
                   <div className="flex items-center gap-2 border-b border-[color:var(--color-line)] bg-brand-50/60 px-4 py-2">
-                    <span aria-hidden>{MEAL_ICON[mealType]}</span>
+                    <MealIcon className="size-4 text-brand-700" />
                     <h2 className="text-xs font-bold uppercase tracking-wide text-brand-700">
                       {MEAL_LABEL[mealType] ?? mealType}
                     </h2>
@@ -199,15 +210,25 @@ export function PlanClient({
                             className="text-base font-semibold hover:text-brand-600"
                           >
                             {meal.recipe.name}
-                            {meal.recipe.isFavorite && <span aria-label="favorito"> ⭐</span>}
+                            {meal.recipe.isFavorite && (
+                              <span aria-label="favorito" className="ml-1 inline-flex align-middle">
+                                <StarIconSolid className="size-4 text-brand-600" />
+                              </span>
+                            )}
                           </Link>
                           <p className="mt-1 line-clamp-2 text-sm text-ink-soft">
                             {meal.recipe.description}
                           </p>
                           <div className="mt-2 flex flex-wrap gap-1.5">
-                            <span className="chip">⏱ {meal.recipe.totalMinutes} min</span>
-                            <span className="chip">🔥 {meal.recipe.calories} kcal</span>
-                            <span className="chip">💪 {meal.recipe.proteinG} g proteina</span>
+                            <span className="chip">
+                              <ClockIcon className="size-3.5" /> {meal.recipe.totalMinutes} min
+                            </span>
+                            <span className="chip">
+                              <FireIcon className="size-3.5" /> {meal.recipe.calories} kcal
+                            </span>
+                            <span className="chip">
+                              <ChartBarIcon className="size-3.5" /> {meal.recipe.proteinG} g proteina
+                            </span>
                           </div>
                         </div>
                       </div>

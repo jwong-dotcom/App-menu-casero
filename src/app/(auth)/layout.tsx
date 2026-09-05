@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { FireIcon } from "@/components/icons";
 import { getSession } from "@/lib/session";
 
 export default async function AuthLayout({ children }: { children: React.ReactNode }) {
@@ -8,8 +9,8 @@ export default async function AuthLayout({ children }: { children: React.ReactNo
     <main className="flex min-h-dvh flex-col justify-center px-5 py-10 sm:px-6">
       <div className="mx-auto w-full max-w-md">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-600 text-3xl">
-            🍽️
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-600 text-white">
+            <FireIcon className="size-8" />
           </div>
           <h1 className="text-2xl font-bold tracking-tight">Menu Casero</h1>
           <p className="mt-1 text-sm text-ink-soft">

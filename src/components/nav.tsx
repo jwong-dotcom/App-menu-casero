@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { BookOpenIcon, CalendarDaysIcon, CogIcon, FireIcon, ShoppingCartIcon } from "./icons";
 
 const LINKS = [
-  { href: "/plan", label: "Menu", icon: "📅" },
-  { href: "/lista", label: "Compras", icon: "🛒" },
-  { href: "/recetas", label: "Recetas", icon: "📖" },
-  { href: "/preferencias", label: "Ajustes", icon: "⚙️" },
+  { href: "/plan", label: "Menu", Icon: CalendarDaysIcon },
+  { href: "/lista", label: "Compras", Icon: ShoppingCartIcon },
+  { href: "/recetas", label: "Recetas", Icon: BookOpenIcon },
+  { href: "/preferencias", label: "Ajustes", Icon: CogIcon },
 ] as const;
 
 function isActive(pathname: string, href: string) {
@@ -36,9 +37,7 @@ export function BottomNav() {
                   active ? "text-brand-600" : "text-ink-soft"
                 }`}
               >
-                <span aria-hidden className="text-xl leading-none">
-                  {link.icon}
-                </span>
+                <link.Icon className="size-6" />
                 {link.label}
               </Link>
             </li>
@@ -57,8 +56,8 @@ export function SideNav({ userName }: { userName: string }) {
     <aside className="hidden w-60 shrink-0 border-r border-[color:var(--color-line)] bg-white md:block">
       <div className="sticky top-0 flex h-dvh flex-col p-4">
         <Link href="/plan" className="mb-6 flex items-center gap-2 px-2 py-1">
-          <span aria-hidden className="text-2xl">
-            🍽️
+          <span className="flex size-8 items-center justify-center rounded-lg bg-brand-600 text-white">
+            <FireIcon className="size-5" />
           </span>
           <span className="text-base font-bold">Menu Casero</span>
         </Link>
@@ -74,9 +73,7 @@ export function SideNav({ userName }: { userName: string }) {
                     active ? "bg-brand-50 text-brand-700" : "text-ink-soft hover:bg-black/5"
                   }`}
                 >
-                  <span aria-hidden className="text-lg">
-                    {link.icon}
-                  </span>
+                  <link.Icon className="size-5" />
                   {link.label}
                 </Link>
               </li>

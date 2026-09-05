@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ClockIcon, FireIcon, MagnifyingGlassIcon, StarIcon } from "@/components/icons";
 import { EmptyState, PageHeader } from "@/components/ui";
 import { MEAL_TYPES } from "@/db/schema";
 import { getAllRecipes, getExclusions, getFavorites, getPreferences } from "@/lib/queries";
@@ -77,7 +78,15 @@ export default async function RecetasPage({
               active={mealFilter === type}
             />
           ))}
-          <FilterChip label="⭐ Favoritos" href="/recetas?fav=1" active={onlyFavorites} />
+          <FilterChip
+            label={
+              <>
+                <StarIcon className="size-3.5" /> Favoritos
+              </>
+            }
+            href="/recetas?fav=1"
+            active={onlyFavorites}
+          />
         </div>
         <button type="submit" className="btn-secondary w-full py-2 text-xs sm:w-auto">
           Buscar
@@ -86,7 +95,7 @@ export default async function RecetasPage({
 
       {filtered.length === 0 ? (
         <EmptyState
-          emoji="🔍"
+          icon={<MagnifyingGlassIcon className="size-6" />}
           title="Sin resultados"
           description="Prueba con otro nombre de plato o ingrediente, o quita los filtros."
         />
@@ -109,9 +118,11 @@ export default async function RecetasPage({
                   <p className="mt-1 line-clamp-2 text-xs text-ink-soft">{recipe.description}</p>
                   <div className="mt-2 flex flex-wrap gap-1.5">
                     <span className="chip">
-                      ⏱ {recipe.prepMinutes + recipe.cookMinutes} min
+                      <ClockIcon className="size-3.5" /> {recipe.prepMinutes + recipe.cookMinutes} min
                     </span>
-                    <span className="chip">🔥 {recipe.calories} kcal</span>
+                    <span className="chip">
+                      <FireIcon className="size-3.5" /> {recipe.calories} kcal
+                    </span>
                   </div>
                   {reason && (
                     <p className="mt-2 text-xs text-amber-700">
@@ -129,7 +140,15 @@ export default async function RecetasPage({
   );
 }
 
-function FilterChip({ label, href, active }: { label: string; href: string; active: boolean }) {
+function FilterChip({
+  label,
+  href,
+  active,
+}: {
+  label: React.ReactNode;
+  href: string;
+  active: boolean;
+}) {
   return (
     <Link href={href} className={`chip shrink-0 ${active ? "chip-active" : ""}`}>
       {label}

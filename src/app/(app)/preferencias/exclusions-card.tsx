@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { addExclusion, removeExclusion, type PrefsState } from "@/app/actions/preferences";
+import { XMarkIcon } from "@/components/icons";
 import { Notice } from "@/components/ui";
 
 export function ExclusionsCard({
@@ -116,8 +117,12 @@ export function ExclusionsCard({
                   {exclusion.label}
                   {exclusion.reason === "salud" && " (salud)"}
                 </span>
-                <button type="submit" aria-label={`Quitar ${exclusion.label}`} className="ml-1">
-                  ✕
+                <button
+                  type="submit"
+                  aria-label={`Quitar ${exclusion.label}`}
+                  className="ml-1 inline-flex"
+                >
+                  <XMarkIcon className="size-3.5" />
                 </button>
               </form>
             </li>

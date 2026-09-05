@@ -2,6 +2,7 @@
 
 import { useOptimistic, useTransition } from "react";
 import { toggleFavorite } from "@/app/actions/preferences";
+import { StarIcon, StarIconSolid } from "@/components/icons";
 
 export function FavoriteButton({
   recipeId,
@@ -18,7 +19,7 @@ export function FavoriteButton({
       type="button"
       aria-label={optimistic ? "Quitar de favoritos" : "Agregar a favoritos"}
       aria-pressed={optimistic}
-      className="h-9 w-9 shrink-0 rounded-lg text-lg transition hover:bg-black/5"
+      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-brand-600 transition hover:bg-black/5"
       onClick={() =>
         startTransition(async () => {
           setOptimistic(!optimistic);
@@ -29,7 +30,7 @@ export function FavoriteButton({
         })
       }
     >
-      {optimistic ? "⭐" : "☆"}
+      {optimistic ? <StarIconSolid className="size-5" /> : <StarIcon className="size-5" />}
     </button>
   );
 }

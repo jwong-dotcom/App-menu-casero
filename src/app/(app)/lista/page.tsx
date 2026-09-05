@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ShoppingCartIcon } from "@/components/icons";
 import { EmptyState, PageHeader } from "@/components/ui";
 import { addWeeks, formatWeekRange, mondayOf } from "@/lib/dates";
 import {
@@ -37,7 +38,7 @@ export default async function ListaPage({
       <>
         <PageHeader title="Lista de compras" subtitle={formatWeekRange(weekStart)} />
         <EmptyState
-          emoji="🛒"
+          icon={<ShoppingCartIcon className="size-6" />}
           title="Aun no hay lista para esta semana"
           description="La lista se arma sola a partir del menu. Genera primero el menu de la semana."
           action={

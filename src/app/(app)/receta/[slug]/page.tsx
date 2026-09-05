@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FavoriteButton } from "@/app/(app)/recetas/favorite-button";
+import { BanknotesIcon, ChartBarIcon, ClockIcon, FireIcon } from "@/components/icons";
 import { NutritionBar, PageHeader } from "@/components/ui";
 import { getAllRecipes, getFavorites, getPreferences, servingsFor } from "@/lib/queries";
 import { requireSession } from "@/lib/session";
@@ -38,12 +39,19 @@ export default async function RecetaPage({ params }: { params: Promise<{ slug: s
       />
 
       <div className="mb-4 flex flex-wrap gap-1.5">
-        <span className="chip">⏱ {recipe.prepMinutes} min prep</span>
-        <span className="chip">🍳 {recipe.cookMinutes} min coccion</span>
         <span className="chip">
-          📊 {DIFFICULTY[recipe.difficulty as 1 | 2 | 3] ?? "Media"}
+          <ClockIcon className="size-3.5" /> {recipe.prepMinutes} min prep
         </span>
-        <span className="chip">💰 {COST[recipe.costLevel as 1 | 2 | 3] ?? "Precio medio"}</span>
+        <span className="chip">
+          <FireIcon className="size-3.5" /> {recipe.cookMinutes} min coccion
+        </span>
+        <span className="chip">
+          <ChartBarIcon className="size-3.5" /> {DIFFICULTY[recipe.difficulty as 1 | 2 | 3] ?? "Media"}
+        </span>
+        <span className="chip">
+          <BanknotesIcon className="size-3.5" />{" "}
+          {COST[recipe.costLevel as 1 | 2 | 3] ?? "Precio medio"}
+        </span>
         {recipe.dietTags.map((tag) => (
           <span key={tag} className="chip chip-active">
             {tag}
