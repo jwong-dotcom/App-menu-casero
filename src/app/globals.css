@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  /* Verde oscuro: unico acento, un solo hue, luminosidad decreciente. */
+  --color-brand-50: #eef4f0;
+  --color-brand-100: #dbe7e0;
+  --color-brand-200: #b3cebd;
+  --color-brand-300: #86b099;
+  --color-brand-400: #558d73;
+  --color-brand-500: #2f6d53;
+  --color-brand-600: #1f5540;
+  --color-brand-700: #184433;
+  --color-brand-800: #123527;
+  --color-brand-900: #0d271d;
+
+  --color-ink: #0f1210;
+  --color-ink-soft: #5b625d;
+  --color-line: #e2e6e3;
+  --color-surface: #ffffff;
+  --color-canvas: #f7f9f8;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    /* Espacio para la barra de navegacion inferior en mobile. */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Objetivos tactiles comodos en mobile. */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    touch-action: manipulation;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px; /* evita el zoom automatico en iOS */
+  }
+}
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition-property: color, background-color, border-color, transform;
+  transition-duration: 150ms;
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-white;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-600 text-white hover:bg-brand-700;
+  }
+
+  .btn-secondary {
+    @apply btn border border-line bg-white text-ink hover:bg-brand-50;
+  }
+
+  .btn-ghost {
+    @apply btn text-ink-soft hover:bg-black/5;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-base
+      outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-200;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink-soft;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line
+      bg-white px-3 py-1.5 text-xs font-medium text-ink-soft;
+  }
+
+  .chip-active {
+    @apply border-brand-500 bg-brand-50 text-brand-700;
+  }
+}
+
+/* Ocultar la barra de scroll horizontal en los carruseles de dias. */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
